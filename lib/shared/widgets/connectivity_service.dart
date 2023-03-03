@@ -12,8 +12,7 @@ abstract class ConnectivityWidget extends ChangeNotifier {
   ConnectivityWidget() {
     _isConnected = false;
     initConnectivity();
-    Connectivity().onConnectivityChanged.listen((result) {
-      print(result);
+    Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       if (result == ConnectivityResult.none) {
         _isConnected = false;
       } else {
@@ -25,7 +24,8 @@ abstract class ConnectivityWidget extends ChangeNotifier {
   }
 
   Future<void> initConnectivity() async {
-    var connectivityResult = await Connectivity().checkConnectivity();
+    ConnectivityResult connectivityResult =
+        await Connectivity().checkConnectivity();
     if (connectivityResult == ConnectivityResult.none) {
       _isConnected = false;
     } else {

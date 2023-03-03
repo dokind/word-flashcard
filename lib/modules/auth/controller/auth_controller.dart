@@ -10,6 +10,7 @@ class AuthController extends ChangeNotifier {
   /// [AuthRepository] repo
   final AuthRepository repository;
 
+  /// [user]
   User? user;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;

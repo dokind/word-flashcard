@@ -14,8 +14,13 @@ class LoginForm extends StatefulWidget {
     required this.formKey,
   }) : super(key: key);
 
+  ///
   final TextEditingController username;
+
+  ///
   final TextEditingController password;
+
+  ///
   final GlobalKey<FormState> formKey;
 
   @override
@@ -25,7 +30,7 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
-    final authCtrl = Provider.of<AuthController>(context, listen: true);
+    final AuthController authCtrl = Provider.of<AuthController>(context);
     return Form(
       key: widget.formKey,
       child: Column(
@@ -37,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
             decoration: const InputDecoration(
               hintText: 'Username',
             ),
-            validator: (value) {
+            validator: (String? value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your username';
               }
@@ -50,7 +55,7 @@ class _LoginFormState extends State<LoginForm> {
             decoration: const InputDecoration(
               hintText: 'Password',
             ),
-            validator: (value) {
+            validator: (String? value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your password';
               }
