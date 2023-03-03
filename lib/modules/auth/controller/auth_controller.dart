@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:labo001/shared/shared.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../../firebase_options.dart';
 import '../repository/repository.dart';
@@ -111,5 +111,11 @@ class AuthController extends ChangeNotifier {
       notifyListeners();
     }
     return null;
+  }
+
+  void updateUser(User? user) {
+    print('user Updated');
+    this.user = user;
+    notifyListeners();
   }
 }

@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:labo001/modules/modules.dart';
@@ -20,8 +21,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     authController = Provider.of<AuthController>(context, listen: false);
+
     Future<void>(() async {
       authController?.initUser();
+    });
+    authController?.authStateChanges.listen((User? user) {
+      print('authController stream');
+      print(user);
+      authController?.updateUser(user);
     });
     Timer(const Duration(seconds: 1), () => FlutterNativeSplash.remove());
   }
