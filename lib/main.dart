@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'modules/modules.dart';
+import 'my_router.dart';
 import 'shared/shared.dart';
 
 void main() async {
@@ -31,8 +32,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiProvider(
         providers: [
-          ChangeNotifierProvider<ConnectivityNotifier>(
-            create: (_) => ConnectivityNotifier(),
+          ChangeNotifierProvider<ConnectivityProvider>(
+            create: (_) => ConnectivityProvider(),
           ),
           ChangeNotifierProvider<HomeController>(
             create: (_) => HomeController(getIt<HomeRepository>()),
@@ -41,11 +42,11 @@ class MyApp extends StatelessWidget {
             create: (_) => AuthController(getIt<AuthRepository>()),
           ),
         ],
-        child: MaterialApp(
+        child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'Labo001',
           theme: ThemeData(),
-          home: const SplashScreen(),
+          routerConfig: router,
         ),
       );
 }

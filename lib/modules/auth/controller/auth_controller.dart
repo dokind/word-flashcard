@@ -114,6 +114,7 @@ class AuthController extends ChangeNotifier {
     return null;
   }
 
+// controller.user == null ? const LoginScreen() : const HomeScreen(),
   void updateUser(User? user) {
     print('user Updated');
     this.user = user;

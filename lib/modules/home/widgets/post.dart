@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/shared.dart';
+
 /// [Post] is item inside the feed
 class Post extends StatelessWidget {
   const Post({
@@ -7,7 +9,7 @@ class Post extends StatelessWidget {
     required this.word,
   });
 
-  final dynamic word;
+  final Word word;
 
   @override
   Widget build(BuildContext context) {
@@ -16,20 +18,10 @@ class Post extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            word ?? '',
-            style: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            word ?? '',
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Text(word.word ?? '',
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                    color: Colors.white,
+                  )),
         ],
       ),
     );

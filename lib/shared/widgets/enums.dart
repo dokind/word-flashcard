@@ -2,6 +2,9 @@
 enum SecureStorageKeys {
   /// save `token` to this key
   authToken,
+
+  /// save is onboarded
+  onBoard,
 }
 
 /// `AuthStatus`

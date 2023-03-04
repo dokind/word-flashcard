@@ -10,6 +10,7 @@ abstract class ConnectivityWidget extends ChangeNotifier {
   bool get isConnected => _isConnected;
 
   ConnectivityWidget() {
+    print('this is called when');
     _isConnected = false;
     initConnectivity();
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
@@ -36,7 +37,8 @@ abstract class ConnectivityWidget extends ChangeNotifier {
   void onConnectionChange(bool isConnected);
 }
 
-class ConnectivityNotifier extends ConnectivityWidget {
+class ConnectivityProvider extends ConnectivityWidget {
+  ConnectivityProvider() : super();
   @override
   void onConnectionChange(bool isConnected) {
     print('isConnected');

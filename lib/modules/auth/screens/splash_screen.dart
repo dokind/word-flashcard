@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:go_router/go_router.dart';
 import 'package:labo001/modules/modules.dart';
 import 'package:provider/provider.dart';
 
@@ -29,13 +30,17 @@ class _SplashScreenState extends State<SplashScreen> {
       print('authController stream');
       print(user);
       authController?.updateUser(user);
+      if (user != null) {
+        context.goNamed('/');
+      } else {
+        context.goNamed('/login');
+      }
     });
     Timer(const Duration(seconds: 1), () => FlutterNativeSplash.remove());
   }
 
   @override
   Widget build(BuildContext context) => Consumer<AuthController>(
-        builder: (BuildContext context, AuthController controller, _) =>
-            controller.user == null ? const LoginScreen() : const HomeScreen(),
-      );
+      builder: (BuildContext context, AuthController controller, _) =>
+          Container(color: Colors.amber));
 }

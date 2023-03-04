@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/material.dart';
+import 'package:labo001/shared/shared.dart';
 
 import 'post.dart';
 
@@ -22,7 +23,7 @@ class MyFeed extends StatelessWidget {
             physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               final dynamic word = words[index];
-              return Post(word: word);
+              return Post(word: Word.dummy());
             },
             itemCount: words?.length ?? 0,
           ),
