@@ -24,17 +24,12 @@ class _SplashScreenState extends State<SplashScreen> {
     authController = Provider.of<AuthController>(context, listen: false);
 
     Future<void>(() async {
+      await Future<void>.delayed(const Duration(seconds: 1));
       authController?.initUser();
     });
+
     authController?.authStateChanges.listen((User? user) {
-      print('authController stream');
-      print(user);
-      authController?.updateUser(user);
-      if (user != null) {
-        context.goNamed('/');
-      } else {
-        context.goNamed('/login');
-      }
+      authController?.updateUser(user, context);
     });
     Timer(const Duration(seconds: 1), () => FlutterNativeSplash.remove());
   }
