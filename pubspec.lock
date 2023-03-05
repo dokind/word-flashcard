@@ -198,6 +198,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_animate:
+    dependency: "direct main"
+    description:
+      name: flutter_animate
+      sha256: c6e38af9fe376fa07fb6995fe6a12d07a08828d2847aa652b7c1bc60f9993374
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -272,6 +280,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  functional_listener:
+    dependency: transitive
+    description:
+      name: functional_listener
+      sha256: "026d1bd4f66367f11d9ec9f1f1ddb42b89e4484b356972c76d983266cf82f33f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.1"
   get_it:
     dependency: "direct main"
     description:
@@ -280,6 +296,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.2.0"
+  get_it_mixin:
+    dependency: "direct main"
+    description:
+      name: get_it_mixin
+      sha256: d6e90b642e6bae0eed2db366e2c18c7126427f9ae76b3a2ec88239ce2fa51ec5
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.4+2"
   go_router:
     dependency: "direct main"
     description:

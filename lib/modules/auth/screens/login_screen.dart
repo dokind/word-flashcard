@@ -30,10 +30,18 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    username.dispose();
+    password.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) => Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
-        body: Consumer<AuthController>(
+        body: SafeArea(
+          child: Consumer<AuthController>(
             builder: (BuildContext context, AuthController controller,
                     Widget? child) =>
                 controller.isLoading
@@ -42,16 +50,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           LoginForm(
-                              username: username,
-                              password: password,
-                              formKey: _formKey),
+                            username: username,
+                            password: password,
+                            formKey: _formKey,
+                          ),
                           child ?? const SizedBox()
                         ],
                       ),
             child: ElevatedButton(
-                onPressed: () async {
-                  await authController.signInWithGoogle();
-                },
-                child: const Text('Login with google'))),
+              onPressed: () async {
+                await authController.signInWithGoogle();
+              },
+              child: const Text('Login with google'),
+            ),
+          ),
+        ),
       );
 }

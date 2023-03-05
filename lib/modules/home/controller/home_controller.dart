@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer' as dev;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -33,14 +35,6 @@ class HomeController extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     }
-  }
-
-  /// init home screen and check onboarded
-  Future<void> init() async {
-    final bool isOnBoarded = await this.isOnBoarded();
-    if (isOnBoarded) {
-      await getwWords();
-    } else {}
   }
 
   /// checking is `onboarded` or not

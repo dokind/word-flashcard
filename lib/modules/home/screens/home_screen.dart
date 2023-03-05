@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     homeController = Provider.of<HomeController>(context, listen: false);
-    Future<void>(() => homeController.init());
+    Future<void>(() => homeController.getwWords());
   }
 
   @override

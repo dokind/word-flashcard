@@ -24,18 +24,14 @@ class _SplashScreenState extends State<SplashScreen> {
     authController = Provider.of<AuthController>(context, listen: false);
 
     Future<void>(() async {
-      await Future<void>.delayed(const Duration(seconds: 1));
       authController?.initUser();
     });
 
     authController?.authStateChanges.listen((User? user) {
       authController?.updateUser(user, context);
     });
-    Timer(const Duration(seconds: 1), () => FlutterNativeSplash.remove());
   }
 
   @override
-  Widget build(BuildContext context) => Consumer<AuthController>(
-      builder: (BuildContext context, AuthController controller, _) =>
-          Container(color: Colors.amber));
+  Widget build(BuildContext context) => Container(color: Colors.amber);
 }
