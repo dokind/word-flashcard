@@ -48,7 +48,17 @@ class MyApp extends StatelessWidget {
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'Labo001',
-          theme: ThemeData(fontFamily: $styles.text.body.fontFamily),
+          theme: ThemeData(
+              fontFamily: $styles.text.body.fontFamily,
+              inputDecorationTheme: const InputDecorationTheme().copyWith(
+                border: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(
+                      10,
+                    ),
+                  ),
+                ),
+              )),
           // routerConfig: router,
           routeInformationProvider: router.routeInformationProvider,
           routeInformationParser: router.routeInformationParser,

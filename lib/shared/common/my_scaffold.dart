@@ -7,8 +7,14 @@ import '../../styles/styles.dart';
 import '../shared.dart';
 
 class MyScaffold extends StatelessWidget with GetItMixin {
-  MyScaffold({Key? key, required this.child}) : super(key: key);
+  MyScaffold({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
   final Widget child;
+
+  /// app Style [AppStyle]
   static AppStyle get style => _style;
   static AppStyle _style = AppStyle();
 
